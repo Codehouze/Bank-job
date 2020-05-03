@@ -1,0 +1,93 @@
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+}
+
+.navbar {
+  background-color: #2f2fa2;
+}
+
+.btn-green {
+  background-color: #5cdb95;
+  padding: 16px 32px 16px 16px;
+  border-radius: 3px;
+  border: 0;
+  color: whitesmoke;
+  margin-top: 1em;
+}
+.text-blue {
+  color: #2f2fa2;
+}
+
+.card {
+  height: 400px;
+  margin-bottom: 1em;
+  border: 0;
+  width: 300px;
+}
+
+.card-2{
+  margin-bottom: 1em;
+  height: 400px;
+  border: 0;
+  box-shadow: 4px 8px 4px 4px #f8f9fa;
+  border-radius: 10px;
+  border: 1px solid #2f2fa2;
+  height: 300px;
+
+}
+
+li {
+  list-style-type: none;
+  margin-bottom: 1em;
+}
+
+.btn-blue {
+  background-color: #2f2fa2;
+  padding: 16px 32px 16px 16px;
+  border-radius: 3px;
+  border: 0;
+  color: whitesmoke;
+  margin-top: 1em;
+}
+
+.logo {
+  font-weight: bolder;
+}
+
+.jumbotron {
+  height: 550px;
+}
+
+.btn-red {
+  background-color: #fc4445;
+  padding: 16px 32px 16px 16px;
+  border-radius: 3px;
+  border: 0;
+  color: whitesmoke;
+  margin-top: 1em;
+}
+
+.form-control {
+  padding: 16px 32px 16px 16px;
+  border: 1px solid black;
+  margin-bottom: 1em;
+}
+
+.img{
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  background-color: #4f4f20;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
