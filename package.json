@@ -1,6 +1,19 @@
 {
-    "scripts": {
-        "start": "cd backend && npm install && node index.js",
-        "heroku-postbuild": "cd client && npm install && npm run build"
-    }
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+        "server": "node index.js",
+        "client": "npm start --prefix client",
+        "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+        "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.3"
+  },
+  "proxy":"http://localhost:3000"
 }
