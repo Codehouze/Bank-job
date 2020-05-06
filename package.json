@@ -2,11 +2,11 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "client-install": "cd client && npm install",
     "start": "npm run dev",
-    "server": "nodemon index.js",
+    "server": "nodemon app.js",
     "client": "npm start --prefix client",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
   },
