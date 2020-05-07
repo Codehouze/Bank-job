@@ -6,25 +6,15 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const path = require ("path");
 
-if(!dev){
+app.use(express.static(path.join(__dirname, 'build')))
 
-    app.disable('x-powered-by');
-    app.use(express.static(path.join(__dirname, 'build')));
+app.get('/ping', (req, res) => {
+  return res.send('pong')
+})
 
-    app.get("*", (req,res)=>{
-    res.sendFile(path.resolve(__dirname, 'build', index.html));
-});
-}
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'))
+})
 
-
-app.get("/",(req,res)=>{
-    res.send ("we are good");
-});
-
-app.listen(PORT,()=>{
-    console.log("server started on port 8000");
-}); 
-
-
-module.exports = app;
+app.listen(8000)
 
