@@ -30,8 +30,8 @@
     "extends": "react-app"
   }, 
   
- 
-  "proxy": "http://localhost:8000",
+  "proxy":"https://bankj.herokuapp.com/",
+  
 
 
   "browserslist": {

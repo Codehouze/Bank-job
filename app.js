@@ -5,7 +5,7 @@ const cluster = require('cluster');
 const numCPUs = require('os').cpus().length;
 
 const isDev = process.env.NODE_ENV !== 'production';
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8000;
 
 // Multi-process to utilize all CPU cores.
 if (!isDev && cluster.isMaster) {
@@ -24,7 +24,7 @@ if (!isDev && cluster.isMaster) {
   const app = express();
 
   // Priority serve any static files.
-  app.use(express.static(path.resolve(__dirname, 'client/build')));
+  app.use(express.static(path.resolve(__dirname, '../client/build')));
 
   // Answer API requests.
   app.get('/api', function (req, res) {
@@ -34,7 +34,7 @@ if (!isDev && cluster.isMaster) {
 
   // All remaining requests return the React app, so it can handle routing.
   app.get('*', function(request, response) {
-    response.sendFile(path.resolve(__dirname, 'client/build', 'index.html'));
+    response.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
   });
 
   app.listen(PORT, function () {
