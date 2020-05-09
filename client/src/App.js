@@ -17,10 +17,10 @@ import UserProfile from "./components/UserProfile";
 import AdminDashboard from "./components/AdminDashboard";
 import AdminEditUserProfile from "./components/AdminEditUserProfile";
 import Footer from "./components/Footer";
-import Navbar from  "./components/layout/Navbar";
-import Social from "./Components/social/Social";
+import Navbar from  "./components/Navbar";
+import Social from "./components/social/Social";
 
-const App = () => {
+class App extends useContext{
   constructor(props) 
     { super(props);
     this.state ={} 
@@ -31,36 +31,31 @@ const App = () => {
     componentDidMount()
     {    this.connecToServer(); }
   
-      render() 
-  
-    
-  
-
-
-
-  return (
-    <Router>
-      <Switch>
-         <Router> <div className ="container"> <Navbar/> 
-      
-      <Route exact path="/social" component={Social}/> <Footer/></div>
-      </Router>);
-        <Route exact path="/" component={HomePage} />
-        <Route exact path="/login" component={LoginPage} />
-        <Route exact path="/register" component={RegisterPage} />
-        <PrivateRoute exact path="/dashboard/transfer" component={TransferMoney} />
-        <PrivateRoute exact path="/dashboard/profile" component={UserProfile} />
-        <PrivateRoute exact path="/dashboard/support" component={CustomerCare} />
-        <PrivateRoute exact path="/dashboard/support" component={CustomerCare} />
-        <PrivateRoute exact path="/admin" component={AdminDashboard} />
-        <PrivateRoute exact path="/admin/profile/:id" component={AdminEditUserProfile} />
-        <PrivateRoute exact path="/dashboard" component={Dashboard} />
-        <Route component={Error404} />
-      </Switch>
-    </Router>
+      render() {
+    return (
+      <Router>
+        <Switch>
+          <Router> <div className ="container"> <Navbar/> 
+        
+        <Route exact path="/social" component={Social}/> <Footer/></div>
+        </Router>);
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/login" component={LoginPage} />
+          <Route exact path="/register" component={RegisterPage} />
+          <PrivateRoute exact path="/dashboard/transfer" component={TransferMoney} />
+          <PrivateRoute exact path="/dashboard/profile" component={UserProfile} />
+          <PrivateRoute exact path="/dashboard/support" component={CustomerCare} />
+          <PrivateRoute exact path="/dashboard/support" component={CustomerCare} />
+          <PrivateRoute exact path="/admin" component={AdminDashboard} />
+          <PrivateRoute exact path="/admin/profile/:id" component={AdminEditUserProfile} />
+          <PrivateRoute exact path="/dashboard" component={Dashboard} />
+          <Route component={Error404} />
+        </Switch>
+      </Router>
   );
+    }
 
-  
+}
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const [isAuthenticated] = useContext(AppContext);
   return (
@@ -80,5 +75,5 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
     />
   );
 };
-}
+
 export default App;

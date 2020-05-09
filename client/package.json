@@ -30,10 +30,7 @@
     "extends": "react-app"
   }, 
   
-    "root": "build/",
-    "routes": {
-      "/**": "index.html"
-    },
+    
     "proxies": {
       "/api/": {
         "origin": "${API_URL}"
