@@ -16,11 +16,35 @@ import Error404 from "./components/Error404";
 import UserProfile from "./components/UserProfile";
 import AdminDashboard from "./components/AdminDashboard";
 import AdminEditUserProfile from "./components/AdminEditUserProfile";
+import Footer from "./components/Footer";
+import Navbar from  "./components/layout/Navbar";
+import Social from "./Components/social/Social";
 
 const App = () => {
+  constructor(props) 
+    { super(props);
+    this.state ={} 
+    this.connecToServer = this.connecToServer.bind(this);}
+    conmecToServer() 
+    { fetch("/");}  
+    
+    componentDidMount()
+    {    this.connecToServer(); }
+  
+      render() 
+  
+    
+  
+
+
+
   return (
     <Router>
       <Switch>
+         <Router> <div className ="container"> <Navbar/> 
+      
+      <Route exact path="/social" component={Social}/> <Footer/></div>
+      </Router>);
         <Route exact path="/" component={HomePage} />
         <Route exact path="/login" component={LoginPage} />
         <Route exact path="/register" component={RegisterPage} />
@@ -35,8 +59,8 @@ const App = () => {
       </Switch>
     </Router>
   );
-};
 
+  
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const [isAuthenticated] = useContext(AppContext);
   return (
@@ -56,5 +80,5 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
     />
   );
 };
-
+}
 export default App;
