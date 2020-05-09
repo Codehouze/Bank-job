@@ -11,6 +11,8 @@
     
    
     "client-install": "cd client/ && npm install",
+    "build":"cd client && npm run build",
+    "heroku-postbuild":"npm run client-install && npm run build",
     "start": "node app.js",
     "server": "nodemon app.js",
     "client": "npm start --prefix client",
@@ -26,6 +28,6 @@
     "concurrently": "^5.2.0",
     "express": "^4.17.1",
     "nodemon": "^2.0.3"
-  },
-  "heroku-postbuild":      "NPM_CONFIG_PRODUCTION=false npm install --prefix client        && npm run build --prefix client"  
+  }
+   
 }

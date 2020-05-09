@@ -28,7 +28,7 @@ if (!isDev && cluster.isMaster) {
 
   //production 
   if(process.env.NODE_ENV==="production"){
-    app.use(express.static(path.join(__dirname,'client/build'))); 
+    app.use(express.static('client/build')); 
   
     // All remaining requests return the React app, so it can handle routing.
   app.get('*',(req, res) =>{
