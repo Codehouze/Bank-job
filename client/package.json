@@ -37,7 +37,7 @@
       }
     }
   ,
-  "proxy": "http://localhost:8000/",
+  "proxy": "http://localhost:process.ENV.PORT/",
 
 
   "browserslist": {
