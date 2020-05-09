@@ -1,26 +1,26 @@
 
 const express = require('express');
 const path = require('path');
-const cluster = require('cluster');
+//const cluster = require('cluster');
 const numCPUs = require('os').cpus().length;
 const app = express();
 const isDev = process.env.NODE_ENV !== 'production';
 const PORT = process.env.PORT || 8000;
 
-// Multi-process to utilize all CPU cores.
-if (!isDev && cluster.isMaster) {
-  console.error(`Node cluster master ${process.pid} is running`);
+// // Multi-process to utilize all CPU cores.
+// if (!isDev && cluster.isMaster) {
+//   console.error(`Node cluster master ${process.pid} is running`);
 
-  // Fork workers.
-  for (let i = 0; i < numCPUs; i++) {
-    cluster.fork();
-  }
+//   // Fork workers.
+//   for (let i = 0; i < numCPUs; i++) {
+//     cluster.fork();
+//   }
 
-  cluster.on('exit', (worker, code, signal) => {
-    console.error(`Node cluster worker ${worker.process.pid} exited: code ${code}, signal ${signal}`);
-  });
+//   cluster.on('exit', (worker, code, signal) => {
+//     console.error(`Node cluster worker ${worker.process.pid} exited: code ${code}, signal ${signal}`);
+//   });
 
-} else {
+// } else {
   
 
   // Priority serve any static files.
@@ -34,7 +34,7 @@ if (!isDev && cluster.isMaster) {
   app.get('*',(req, res) =>{
     res.sendFile(path.resolve(__dirname, 'client/build/index.html'));
   });}
-  }
+  
 
   // Answer API requests.
   app.get('/api',(req, res)=> {
