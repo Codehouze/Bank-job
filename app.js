@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 8000;
 
 
   // Priority serve any static files.
-  app.use(express.static(path.join(__dirname, 'client/build')));
+  app.use(express.static('client/build'));
 
   //production 
   if(process.env.NODE_ENV==="production"){
